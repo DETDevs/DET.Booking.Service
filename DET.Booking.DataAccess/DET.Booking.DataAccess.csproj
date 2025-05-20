@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
+  </ItemGroup>
+
+</Project>
