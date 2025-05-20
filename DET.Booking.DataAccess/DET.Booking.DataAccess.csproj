@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
     <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
   </ItemGroup>
