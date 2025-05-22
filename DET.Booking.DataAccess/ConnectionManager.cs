@@ -7,7 +7,7 @@ namespace DET.Booking.DataAccess
 {
     public class ConnectionManager : IConnectionManager
     {
-        public const string connectionStringKey = "MoPetCoConectionString_BD";
+        public const string connectionStringKey = "BD_KEY";
         private readonly IConfiguration configuration;
 
         public ConnectionManager(IConfiguration configuration)
