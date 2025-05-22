@@ -11,6 +11,9 @@ builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IConnectionManager,
 builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IService, DET.Booking.DataAccess.Service>();
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IService, DET.Booking.BusinessLogic.Service>();
 
+builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IBooking, DET.Booking.DataAccess.Booking>();
+builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Booking.BusinessLogic.Booking>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
