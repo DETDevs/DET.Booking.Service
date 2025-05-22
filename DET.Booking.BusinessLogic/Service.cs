@@ -21,5 +21,10 @@ namespace DET.Booking.BusinessLogic
         {
             return await this._servicio.GetAsyncServices(services);
         }
+
+        public async Task<Response<IEnumerable<ServiceScheduleResponse>>> GetServiceSchedule(int employeeID, DateTime fecha)
+        {
+            return await this._servicio.GetServiceSchedule(employeeID, fecha);
+        }
     }
 }
