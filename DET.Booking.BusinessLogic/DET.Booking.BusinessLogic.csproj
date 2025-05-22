@@ -1,20 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj" />
-    <ProjectReference Include="..\DET.Booking.BusinessLogic\DET.Booking.BusinessLogic.csproj" />
     <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
-    <ProjectReference Include="..\DET.Booking.DataAccess\DET.Booking.DataAccess.csproj" />
     <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
   </ItemGroup>
 
