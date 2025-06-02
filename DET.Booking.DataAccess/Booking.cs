@@ -1,12 +1,7 @@
 ﻿using Dapper;
 using DET.Booking.DataAccess.Interfaces;
 using DET.Booking.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DET.Booking.DataAccess
 {
@@ -28,12 +23,15 @@ namespace DET.Booking.DataAccess
                 "[sp_ReservarCita]",
                 param: new
                 {
+                    reservation.PersonName,
+                    reservation.PersonEmail,
+                    reservation.PersonPhoneNumber,
+                    CreateUserCustomer = reservation.CreateUser,
                     reservation.EmployeeID,
                     reservation.ServiceID,
-                    reservation.Fecha,
-                    reservation.Hora,
-                    Cliente = "",
-                    reservation.CreateUser
+                    reservation.Date,
+                    reservation.Hour,
+                    CreateUserReservation = reservation.CreateUser
                 },
                 commandType: CommandType.StoredProcedure
             );

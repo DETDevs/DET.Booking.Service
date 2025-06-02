@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\DET.Booking.Extensions\DET.Booking.Extensions.csproj" />
     <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
   </ItemGroup>
 
