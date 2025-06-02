@@ -32,7 +32,7 @@ namespace DET.Booking.DataAccess
                     reservation.ServiceID,
                     reservation.Fecha,
                     reservation.Hora,
-                    reservation.Cliente,
+                    Cliente = "",
                     reservation.CreateUser
                 },
                 commandType: CommandType.StoredProcedure
