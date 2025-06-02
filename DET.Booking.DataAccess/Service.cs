@@ -21,7 +21,7 @@ namespace DET.Booking.DataAccess
 
             var resultado = await connection.QueryAsync<Models.ServiceResponse>(
 
-                "[sp_Services_Listar]",
+                "[Services_Listar]",
                 param: new
                 {
                     services.BusinessID,
@@ -39,7 +39,7 @@ namespace DET.Booking.DataAccess
 
             var resultado = await connection.QueryAsync<ServiceScheduleResponse>(
 
-                "[sp_ListAvailableSchedulesEmployee]",
+                "[ListAvailableSchedulesEmployee]",
                 param: new
                 {
                     employeeID,
