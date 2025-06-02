@@ -1,3 +1,5 @@
+using DET.Booking.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,6 +20,10 @@ builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
 
 builder.Services.AddScoped<DET.Booking.Extensions.CustomValuesConfiguration>();
 
+// Añadir servicios de SignalR
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<NotificacionService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,5 +38,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<NotificacionHub>("/hub/notificaciones"); // Ruta del Hub
 
 app.Run();
