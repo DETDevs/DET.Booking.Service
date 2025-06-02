@@ -57,5 +57,38 @@ namespace DET.Booking.DataAccess
 
             return new Response<Reservation> { Content = resultado.FirstOrDefault(), IsSuccess = true, Message = "Reserva actualizada correctamente" };
         }
+
+        public async Task<Response<List<Reservation>>> GetNextReservations()
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Reservation>(
+
+               "[Reservation_GetNextReservations]",
+                param: new
+                {
+                    Id = 1
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<List<Reservation>> { Content = resultado.ToList(), IsSuccess = true, Message = "Reserva guardada correctamente" };
+        }
+
+        public async Task MarkAsNotifiedAsync(int reservaId)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Reservation>(
+
+               "[Reservation_MarkAsNotifiedAsync]",
+                param: new
+                {
+                    Id = 1
+                },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
     }
 }

@@ -10,11 +10,14 @@ namespace DET.Booking.BusinessLogic
         private readonly DataAccess.Interfaces.IBooking? _booking;
         private readonly EmailService _emailService;
         private readonly NotificacionService _notificacionService;
-        public Booking(DataAccess.Interfaces.IBooking? booking, EmailService emailService, NotificacionService notificacionService)
+        private readonly WhatsAppService _whatsAppService;
+
+        public Booking(DataAccess.Interfaces.IBooking? booking, EmailService emailService, NotificacionService notificacionService, WhatsAppService whatsAppService)
         {
             this._booking = booking;
             _emailService = emailService;
             _notificacionService = notificacionService;
+            _whatsAppService = whatsAppService;
         }
 
         public async Task<Response<string>> SaveReserve(Reservation reservation)
@@ -65,6 +68,23 @@ namespace DET.Booking.BusinessLogic
             }
 
             return result;
+        }
+
+        public async Task SendAsyncReminder(Reservation reserva)
+        {
+            //var mensaje = $"Hola {reserva.PersonName}, recuerda tu reserva a las {reserva.Date:t}.";
+            var mensaje = $"Hola Edwin, recuerda tu reserva a las Hoy.";
+
+            await _emailService.EnviarCorreoAsync("at2899743@gmail.com", "Recordatorio de Reserva", mensaje);
+            //await _whatsAppService.EnviarMensajeAsync(reserva.PersonPhoneNumber, mensaje);
+            //await _booking.MarkAsNotifiedAsync(reserva.ReservationID);
+        }
+
+        public async Task<List<Reservation>> GetNextReservations()
+        {
+            var result = await _booking.GetNextReservations();
+
+            return result.Content;
         }
 
         private string GetEmailBodyFromTemplate(string templatePath, string usuarioCorreo, DateTime fechaReserva)

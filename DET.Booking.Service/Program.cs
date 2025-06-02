@@ -1,4 +1,6 @@
+using DET.Booking.BusinessLogic.Extensions;
 using DET.Booking.Extensions;
+using DET.Booking.Service.Worker;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +20,10 @@ builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Bo
 
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
 
-builder.Services.AddScoped<DET.Booking.Extensions.CustomValuesConfiguration>();
+builder.Services.AddScoped<CustomValuesConfiguration>();
+
+//builder.Services.AddHostedService<ReservaReminderService>(); // Descomentar para activar el worker de recordatorio de reservas
+builder.Services.AddScoped<WhatsAppService>();
 
 // Añadir servicios de SignalR
 builder.Services.AddSignalR();
