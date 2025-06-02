@@ -14,7 +14,7 @@ namespace DET.Booking.Models
         public int EmployeeID { get; set; }
         public int ServiceID { get; set; }
         public DateTime Date { get; set; }
-        public TimeSpan Hour { get; set; }
+        public TimeSpan? Hour { get; set; }
         public string? PersonName { get; set; }
         public string? PersonEmail{ get; set; }
         public string PersonPhoneNumber{ get; set; }

@@ -10,5 +10,6 @@ namespace DET.Booking.BusinessLogic.Interfaces
     public interface IBooking
     {
         Task<Response<string>> SaveReserve(Reservation reservation);
+        Task<Response<Reservation>> UpdateStateReserve(Reservation reservation);
     }
 }

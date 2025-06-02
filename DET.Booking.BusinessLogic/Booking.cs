@@ -45,6 +45,30 @@ namespace DET.Booking.BusinessLogic
             return result;
         }
 
+        public async Task<Response<Reservation>> UpdateStateReserve(Reservation reservation)
+        {
+            var result = await _booking.UpdateStateReserve(reservation);
+
+            if (result.IsSuccess)
+            {
+                //TODO: Envio de correo confirmando que se realizo la solicitud de reserva
+                // Ruta del archivo HTML
+                var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "template", "ReservationConfirmed.html");
+
+                var emailBody = GetEmailBodyFromTemplate(templatePath, result.Content.PersonEmail, result.Content.Date);
+
+                await _emailService.EnviarCorreoAsync(
+                    result.Content.PersonEmail,
+                    "Test DET.Booking Confirmed",
+                    emailBody
+                );
+
+                //TODO: Envio de notifiacion (Hub)
+            }
+
+            return result;
+        }
+
         private string GetEmailBodyFromTemplate(string templatePath, string usuarioCorreo, DateTime fechaReserva)
         {
             string html = File.ReadAllText(templatePath);

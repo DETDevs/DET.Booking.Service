@@ -38,5 +38,24 @@ namespace DET.Booking.DataAccess
 
             return new Response<string> { Content = "Reserva guardada correctamente", IsSuccess = true, Message = "Reserva guardada correctamente" };
         }
+
+        public async Task<Response<Reservation>> UpdateStateReserve(Reservation reservation)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Models.Reservation>(
+
+                "[Reservation_UpdateState]",
+                param: new
+                {
+                    reservation.ReservationID,
+                    NewStateId = reservation.State,
+                    reservation.ModificationUser
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<Reservation> { Content = resultado.FirstOrDefault(), IsSuccess = true, Message = "Reserva actualizada correctamente" };
+        }
     }
 }
