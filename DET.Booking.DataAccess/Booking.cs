@@ -1,12 +1,7 @@
 ﻿using Dapper;
 using DET.Booking.DataAccess.Interfaces;
 using DET.Booking.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DET.Booking.DataAccess
 {
@@ -28,17 +23,72 @@ namespace DET.Booking.DataAccess
                 "[sp_ReservarCita]",
                 param: new
                 {
+                    reservation.PersonName,
+                    reservation.PersonEmail,
+                    reservation.PersonPhoneNumber,
+                    CreateUserCustomer = reservation.CreateUser,
                     reservation.EmployeeID,
                     reservation.ServiceID,
-                    reservation.Fecha,
-                    reservation.Hora,
-                    Cliente = "",
-                    reservation.CreateUser
+                    reservation.Date,
+                    reservation.Hour,
+                    CreateUserReservation = reservation.CreateUser
                 },
                 commandType: CommandType.StoredProcedure
             );
 
             return new Response<string> { Content = "Reserva guardada correctamente", IsSuccess = true, Message = "Reserva guardada correctamente" };
         }
+
+        public async Task<Response<Reservation>> UpdateStateReserve(Reservation reservation)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Models.Reservation>(
+
+                "[Reservation_UpdateState]",
+                param: new
+                {
+                    reservation.ReservationID,
+                    NewStateId = reservation.State,
+                    reservation.ModificationUser
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<Reservation> { Content = resultado.FirstOrDefault(), IsSuccess = true, Message = "Reserva actualizada correctamente" };
+        }
+
+        public async Task<Response<List<Reservation>>> GetNextReservations()
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Reservation>(
+
+               "[Reservation_GetNextReservations]",
+                param: new
+                {
+                    Id = 1
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<List<Reservation>> { Content = resultado.ToList(), IsSuccess = true, Message = "Reserva guardada correctamente" };
+        }
+
+        public async Task MarkAsNotifiedAsync(int reservaId)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Reservation>(
+
+               "[Reservation_MarkAsNotifiedAsync]",
+                param: new
+                {
+                    Id = 1
+                },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
     }
 }

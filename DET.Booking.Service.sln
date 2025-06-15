@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.Service", "DET.Booking.Service\DET.Booking.Service.csproj", "{3F8E93EA-A6A0-4679-8C1E-D4AC28CDC131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.Service", "DET.Booking.Service\DET.Booking.Service.csproj", "{3F8E93EA-A6A0-4679-8C1E-D4AC28CDC131}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.Models", "DET.Booking.Models\DET.Booking.Models.csproj", "{4CEB409A-DE85-4693-BB24-22C4E31015C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.Models", "DET.Booking.Models\DET.Booking.Models.csproj", "{4CEB409A-DE85-4693-BB24-22C4E31015C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.BusinessLogic", "DET.Booking.BusinessLogic\DET.Booking.BusinessLogic.csproj", "{C313CCCB-3B79-482A-8871-83855195AB6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.BusinessLogic", "DET.Booking.BusinessLogic\DET.Booking.BusinessLogic.csproj", "{C313CCCB-3B79-482A-8871-83855195AB6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.BusinessLogic.Interfaces", "DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj", "{4288996F-4C65-43AB-B32A-78C1FF2A02B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.BusinessLogic.Interfaces", "DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj", "{4288996F-4C65-43AB-B32A-78C1FF2A02B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.DataAccess", "DET.Booking.DataAccess\DET.Booking.DataAccess.csproj", "{E99007BA-B5B4-4DCE-8867-B55EF40FFE0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.DataAccess", "DET.Booking.DataAccess\DET.Booking.DataAccess.csproj", "{E99007BA-B5B4-4DCE-8867-B55EF40FFE0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.DataAccess.Interfaces", "DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj", "{04D68FAA-F35A-434D-9CAC-77198E6C6489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DET.Booking.DataAccess.Interfaces", "DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj", "{04D68FAA-F35A-434D-9CAC-77198E6C6489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DET.Booking.Extensions", "DET.Booking.Extensions\DET.Booking.Extensions.csproj", "{785F00A8-C96A-4901-98A8-1C3897ED6347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{04D68FAA-F35A-434D-9CAC-77198E6C6489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D68FAA-F35A-434D-9CAC-77198E6C6489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D68FAA-F35A-434D-9CAC-77198E6C6489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785F00A8-C96A-4901-98A8-1C3897ED6347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785F00A8-C96A-4901-98A8-1C3897ED6347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785F00A8-C96A-4901-98A8-1C3897ED6347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785F00A8-C96A-4901-98A8-1C3897ED6347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

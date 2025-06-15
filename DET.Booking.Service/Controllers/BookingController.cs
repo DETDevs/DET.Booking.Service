@@ -34,5 +34,24 @@ namespace DET.Booking.Service.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPost(Name = "UpdateBooking")]
+        public async Task<IActionResult> UpdateStateReserve([FromBody] Models.Reservation reservation)
+        {
+            try
+            {
+                var resultado = await this._booking.UpdateStateReserve(reservation);
+
+                if (!resultado.IsSuccess)
+                    return StatusCode(StatusCodes.Status400BadRequest, resultado.Content);
+
+                return Ok(resultado);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
 }

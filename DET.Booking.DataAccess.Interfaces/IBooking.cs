@@ -10,5 +10,8 @@ namespace DET.Booking.DataAccess.Interfaces
     public interface IBooking
     {
         Task<Response<string>> SaveReserve(Reservation reservation);
+        Task<Response<Reservation>> UpdateStateReserve(Reservation reservation);
+        Task<Response<List<Reservation>>> GetNextReservations();
+        Task MarkAsNotifiedAsync(int reservaId);
     }
 }

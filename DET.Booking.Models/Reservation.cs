@@ -13,13 +13,13 @@ namespace DET.Booking.Models
         public int ReservationID { get; set; }
         public int EmployeeID { get; set; }
         public int ServiceID { get; set; }
-        public DateTime Fecha { get; set; }
-        public TimeSpan Hora { get; set; }
-        public string? Name { get; set; }
-        public string? Emailo{ get; set; }
-        public string PhoneNumber{ get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan? Hour { get; set; }
+        public string? PersonName { get; set; }
+        public string? PersonEmail{ get; set; }
+        public string PersonPhoneNumber{ get; set; }
         public string? IsActive { get; set; }
-        public bool Estado { get; set; } = true;
+        public int State { get; set; }
         public string CreateUser { get; set; }
         public DateTime? CreateDate { get; set; } = DateTime.Now;
         public string? ModificationUser { get; set; }

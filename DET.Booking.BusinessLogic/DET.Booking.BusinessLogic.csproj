@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.4" />
+    <PackageReference Include="Twilio" Version="7.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
+    <ProjectReference Include="..\DET.Booking.Extensions\DET.Booking.Extensions.csproj" />
     <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
   </ItemGroup>
 

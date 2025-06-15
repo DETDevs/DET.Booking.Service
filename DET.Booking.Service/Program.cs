@@ -1,3 +1,8 @@
+using DET.Booking.BusinessLogic.Extensions;
+using DET.Booking.Extensions;
+using DET.Booking.Service.Worker;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +19,20 @@ builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IService, DET.Bo
 builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IBooking, DET.Booking.DataAccess.Booking>();
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Booking.BusinessLogic.Booking>();
 
+builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IUser, DET.Booking.DataAccess.User>();
+builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IUser, DET.Booking.BusinessLogic.User>();
+
+builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
+
+builder.Services.AddScoped<CustomValuesConfiguration>();
+
+//builder.Services.AddHostedService<ReservaReminderService>(); // Descomentar para activar el worker de recordatorio de reservas
+builder.Services.AddScoped<WhatsAppService>();
+
+// Añadir servicios de SignalR
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<NotificacionService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,5 +47,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<NotificacionHub>("/hub/notificaciones"); // Ruta del Hub
 
 app.Run();
