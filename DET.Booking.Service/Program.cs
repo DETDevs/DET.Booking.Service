@@ -1,6 +1,7 @@
 using DET.Booking.BusinessLogic.Extensions;
 using DET.Booking.Extensions;
 using DET.Booking.Service.Worker;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IService, DET.Bo
 
 builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IBooking, DET.Booking.DataAccess.Booking>();
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Booking.BusinessLogic.Booking>();
+
+builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IUser, DET.Booking.DataAccess.User>();
+builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IUser, DET.Booking.BusinessLogic.User>();
 
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
 
