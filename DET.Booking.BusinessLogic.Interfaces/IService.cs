@@ -10,6 +10,7 @@ namespace DET.Booking.BusinessLogic.Interfaces
     public interface IService
     {
         Task<Response<IEnumerable<ServiceResponse>>> GetAsyncServices(ServiceResponse services);
+        Task<Response<IEnumerable<ServiceResponse>>> GetAsyncSubServices(ServiceResponse services);
         Task<Response<IEnumerable<ServiceScheduleResponse>>> GetServiceSchedule(int employeeID, DateTime fecha);
     }
 }
