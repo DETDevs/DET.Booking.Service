@@ -22,6 +22,9 @@ builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Bo
 builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IUser, DET.Booking.DataAccess.User>();
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IUser, DET.Booking.BusinessLogic.User>();
 
+builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IEmployee, DET.Booking.DataAccess.Employee>();
+builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IEmployee, DET.Booking.BusinessLogic.Employee>();
+
 builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
 
 builder.Services.AddScoped<CustomValuesConfiguration>();
