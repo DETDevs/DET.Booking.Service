@@ -35,6 +35,25 @@ namespace DET.Booking.Service.Controllers
             }
         }
 
+        [HttpPost(Name = "GetSubServices")]
+        public async Task<IActionResult> GetSubServices([FromBody] Models.ServiceResponse service)
+        {
+            try
+            {
+                var resultado = await this._service.GetAsyncSubServices(service);
+
+                if (!resultado.IsSuccess)
+                    return StatusCode(StatusCodes.Status400BadRequest, resultado.Content);
+
+                return Ok(resultado);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
         [HttpGet("GetServiceSchedule")]
         public async Task<IActionResult> GetServiceSchedule(int employeeID, DateTime fecha)
         {

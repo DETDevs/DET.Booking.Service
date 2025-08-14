@@ -33,6 +33,23 @@ namespace DET.Booking.DataAccess
             return new Response<IEnumerable<ServiceResponse>> { Content = resultado, IsSuccess = true, Message = "Servicios listados correctamente" };
         }
 
+        public async Task<Response<IEnumerable<ServiceResponse>>> GetAsyncSubServices(ServiceResponse services)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Models.ServiceResponse>(
+
+                "[SubServices_Listar]",
+                param: new
+                {
+                    services.ServiceID
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<IEnumerable<ServiceResponse>> { Content = resultado, IsSuccess = true, Message = "SubServicios listados correctamente" };
+        }
+
         public async Task<Response<IEnumerable<ServiceScheduleResponse>>> GetServiceSchedule(int employeeID, DateTime fecha)
         {
             using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
