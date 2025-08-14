@@ -40,6 +40,7 @@ namespace DET.Booking.DataAccess
                 "[Employee_Guardar]",
                 param: new
                 {
+                    employee.PersonID,
                     employee.BusinessID,
                     Name = employee.EmployeeName,
                     Email = employee.EmployeeEmail,

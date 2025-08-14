@@ -16,7 +16,7 @@ namespace DET.Booking.Service.Controllers
         }
 
         [HttpPost(Name = "GetEmployees")]
-        public async Task<IActionResult> GetEmployees([FromBody] ResponseEmployee employee)
+        public async Task<IActionResult> Get([FromBody] ResponseEmployee employee)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace DET.Booking.Service.Controllers
             }
         }
 
-        [HttpPost(Name = "SavwEmployees")]
+        [HttpPost(Name = "SaveEmployees")]
         public async Task<IActionResult> Save([FromBody] ResponseEmployee employee)
         {
             try
