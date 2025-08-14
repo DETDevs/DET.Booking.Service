@@ -17,5 +17,10 @@ namespace DET.Booking.BusinessLogic
         {
             return await this._employee.GetEmployee(employee);
         }
+
+        public async Task<Response<ResponseEmployee>> SaveEmployee(ResponseEmployee employee)
+        {
+            return await this._employee.SaveEmployee(employee);
+        }
     }
 }

@@ -32,5 +32,23 @@ namespace DET.Booking.Service.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPost(Name = "SavwEmployees")]
+        public async Task<IActionResult> Save([FromBody] ResponseEmployee employee)
+        {
+            try
+            {
+                var resultado = await this._employee.SaveEmployee(employee);
+
+                if (!resultado.IsSuccess)
+                    return StatusCode(StatusCodes.Status400BadRequest, resultado.Content);
+
+                return Ok(resultado);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
     }
 }

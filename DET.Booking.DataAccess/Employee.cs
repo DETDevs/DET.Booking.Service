@@ -30,5 +30,28 @@ namespace DET.Booking.DataAccess
 
             return new Response<IEnumerable<ResponseEmployee>> { Content = resultado, IsSuccess = true, Message = "Empleados listados correctamente" };
         }
+
+        public async Task<Response<ResponseEmployee>> SaveEmployee(ResponseEmployee employee)
+        {
+            using var connection = this.connectionManager.GetConnectionString(ConnectionManager.connectionStringKey);
+
+            var resultado = await connection.QueryAsync<Models.ResponseEmployee>(
+
+                "[Employee_Guardar]",
+                param: new
+                {
+                    employee.BusinessID,
+                    Name = employee.EmployeeName,
+                    Email = employee.EmployeeEmail,
+                    PhoneNumber = employee.EmployeePhoneNumber,
+                    Puesto = employee.Workstation,
+                    employee.CreateUser
+
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return new Response<ResponseEmployee> { Content = resultado.FirstOrDefault(), IsSuccess = true, Message = "Empleado guardadado correctamente" };
+        }
     }
 }
