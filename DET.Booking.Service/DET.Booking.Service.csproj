@@ -2,20 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj" />
     <ProjectReference Include="..\DET.Booking.BusinessLogic\DET.Booking.BusinessLogic.csproj" />
-    <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
-    <ProjectReference Include="..\DET.Booking.DataAccess\DET.Booking.DataAccess.csproj" />
-    <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Controllers\" />
+	</ItemGroup>
+	
 </Project>

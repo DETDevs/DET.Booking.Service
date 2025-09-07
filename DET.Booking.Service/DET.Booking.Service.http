@@ -1,4 +1,4 @@
-@DET.Booking.Service_HostAddress = http://localhost:5293
+@DET.Booking.Service_HostAddress = http://localhost:5223
 
 GET {{DET.Booking.Service_HostAddress}}/weatherforecast/
 Accept: application/json

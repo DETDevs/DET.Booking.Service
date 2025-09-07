@@ -2,21 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.4" />
-    <PackageReference Include="Twilio" Version="7.11.1" />
+    <ProjectReference Include="..\DET.Booking.Core\DET.Booking.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DET.Booking.BusinessLogic.Interfaces\DET.Booking.BusinessLogic.Interfaces.csproj" />
-    <ProjectReference Include="..\DET.Booking.DataAccess.Interfaces\DET.Booking.DataAccess.Interfaces.csproj" />
-    <ProjectReference Include="..\DET.Booking.Extensions\DET.Booking.Extensions.csproj" />
-    <ProjectReference Include="..\DET.Booking.Models\DET.Booking.Models.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.9.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.9.0" />
+	</ItemGroup>
+	
 </Project>

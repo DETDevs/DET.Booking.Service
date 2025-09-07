@@ -1,59 +1,18 @@
-using DET.Booking.BusinessLogic.Extensions;
-using DET.Booking.Extensions;
-using DET.Booking.Service.Worker;
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IConnectionManager, DET.Booking.DataAccess.ConnectionManager>();
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IService, DET.Booking.DataAccess.Service>();
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IService, DET.Booking.BusinessLogic.Service>();
-
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IBooking, DET.Booking.DataAccess.Booking>();
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBooking, DET.Booking.BusinessLogic.Booking>();
-
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IUser, DET.Booking.DataAccess.User>();
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IUser, DET.Booking.BusinessLogic.User>();
-
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IEmployee, DET.Booking.DataAccess.Employee>();
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IEmployee, DET.Booking.BusinessLogic.Employee>();
-
-builder.Services.AddScoped<DET.Booking.DataAccess.Interfaces.IBusiness, DET.Booking.DataAccess.Business>();
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Interfaces.IBusiness, DET.Booking.BusinessLogic.Business>();
-
-builder.Services.AddScoped<DET.Booking.BusinessLogic.Extensions.EmailService>();
-
-builder.Services.AddScoped<CustomValuesConfiguration>();
-
-//builder.Services.AddHostedService<ReservaReminderService>(); // Descomentar para activar el worker de recordatorio de reservas
-builder.Services.AddScoped<WhatsAppService>();
-
-// Añadir servicios de SignalR
-builder.Services.AddSignalR();
-builder.Services.AddSingleton<NotificacionService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapHub<NotificacionHub>("/hub/notificaciones"); // Ruta del Hub
 
 app.Run();
